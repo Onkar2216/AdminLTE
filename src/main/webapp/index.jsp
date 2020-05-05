@@ -5,7 +5,7 @@
 </head>
 <body>
 
-<jsp:forward page="/loginpage">
+<jsp:forward page="loginpage">
     <jsp:param name="message" value="Welcome!"/>
 </jsp:forward>
 
