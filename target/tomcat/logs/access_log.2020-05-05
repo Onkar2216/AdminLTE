@@ -117,3 +117,5 @@
 0:0:0:0:0:0:0:1 - - [05/May/2020:14:09:41 +0530] "GET /plugins/iCheck/square/blue.css HTTP/1.1" 404 949 http-bio-8080-exec-4 1
 0:0:0:0:0:0:0:1 - - [05/May/2020:14:10:18 +0530] "GET / HTTP/1.1" 200 4023 http-bio-8080-exec-1 143
 0:0:0:0:0:0:0:1 - - [05/May/2020:14:10:18 +0530] "GET /plugins/iCheck/square/blue.css HTTP/1.1" 404 949 http-bio-8080-exec-3 9
+0:0:0:0:0:0:0:1 - - [05/May/2020:14:13:07 +0530] "GET / HTTP/1.1" 200 4023 http-bio-8080-exec-5 401
+0:0:0:0:0:0:0:1 - - [05/May/2020:14:13:07 +0530] "GET /plugins/iCheck/square/blue.css HTTP/1.1" 404 949 http-bio-8080-exec-7 3
