@@ -61,4 +61,9 @@ public class Links implements java.io.Serializable {
 		this.click = click;
 	}
 
+	@Override
+	public String toString() {
+		return "Links [idLinks=" + idLinks + ", content=" + content + ", click=" + click + "]";
+	}
+
 }

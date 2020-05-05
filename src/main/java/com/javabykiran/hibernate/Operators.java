@@ -128,4 +128,11 @@ public class Operators implements java.io.Serializable {
 		this.timings = timings;
 	}
 
+	@Override
+	public String toString() {
+		return "Operators [idoperators=" + idoperators + ", person=" + person + ", for_=" + for_ + ", whatsapp="
+				+ whatsapp + ", phonecall=" + phonecall + ", sms=" + sms + ", email=" + email + ", contact=" + contact
+				+ ", timings=" + timings + "]";
+	}
+
 }

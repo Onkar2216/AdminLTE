@@ -1,6 +1,8 @@
 package com.javabykiran.hibernate;
 // Generated 1 May, 2020 12:07:45 PM by Hibernate Tools 5.2.12.Final
 
+import java.util.Arrays;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -113,6 +115,13 @@ public class Downloads implements java.io.Serializable {
 
 	public void setOfficialSource(String officialSource) {
 		this.officialSource = officialSource;
+	}
+
+	@Override
+	public String toString() {
+		return "Downloads [iddownloads=" + iddownloads + ", name=" + Arrays.toString(name) + ", vender=" + vender
+				+ ", softwareversion=" + softwareversion + ", bit32=" + bit32 + ", bit64=" + bit64 + ", common="
+				+ common + ", officialSource=" + officialSource + "]";
 	}
 
 }
