@@ -4,10 +4,6 @@
 <head>
 </head>
 <body>
-
-<jsp:forward page="loginpage">
-    <jsp:param name="message" value="Welcome!"/>
-</jsp:forward>
-
+<% response.sendRedirect("loginpage"); %>
 </body>
 </html>
