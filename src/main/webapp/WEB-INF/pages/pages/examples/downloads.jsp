@@ -141,6 +141,9 @@
 														download> <span class="label label-success">32bit</span>
 													</a></td>
 												</c:when>
+												<c:otherwise>
+												<td></td>
+												</c:otherwise>
 											</c:choose>
 											<c:choose>
 												<c:when test="${download.getBit64() ne 'false' }">
@@ -148,6 +151,9 @@
 														download> <span class="label label-success">64bit</span>
 													</a></td>
 												</c:when>
+												<c:otherwise>
+												<td></td>
+												</c:otherwise>
 											</c:choose>
 											<c:choose>
 												<c:when test="${download.getCommon() ne 'false' }">
@@ -155,6 +161,9 @@
 														download> <span class="label label-success">Common</span>
 													</a></td>
 												</c:when>
+												<c:otherwise>
+												<td></td>
+												</c:otherwise>
 											</c:choose>
 											<td><a href="<c:out value="${download.getOfficialSource()}"/>"
 												target="_blank"> <span class="label label-warning">Official
