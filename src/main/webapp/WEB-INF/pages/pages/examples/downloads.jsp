@@ -136,21 +136,21 @@
 											<td><span class="label label-info"><c:out
 														value="${download.getVersion()}" /></span></td>
 											<c:choose>
-												<c:when test="${download.getBit32() ne null }">
+												<c:when test="${download.getBit32() ne 'false' }">
 													<td><a href="<c:out value="${download.getBit32()}"/>"
 														download> <span class="label label-success">32bit</span>
 													</a></td>
 												</c:when>
 											</c:choose>
 											<c:choose>
-												<c:when test="${download.getBit64() ne null }">
+												<c:when test="${download.getBit64() ne 'false' }">
 													<td><a href="<c:out value="${download.getBit64()}"/>"
 														download> <span class="label label-success">64bit</span>
 													</a></td>
 												</c:when>
 											</c:choose>
 											<c:choose>
-												<c:when test="${download.getCommon() ne null }">
+												<c:when test="${download.getCommon() ne 'false' }">
 													<td><a href="<c:out value="${download.getCommon()}"/>"
 														download> <span class="label label-success">Common</span>
 													</a></td>
