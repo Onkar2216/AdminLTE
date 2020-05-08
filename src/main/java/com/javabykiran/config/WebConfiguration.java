@@ -30,27 +30,11 @@ public class WebConfiguration implements WebMvcConfigurer {
 
 	 public void addResourceHandlers(ResourceHandlerRegistry registry) 
 	 {
-	        registry.addResourceHandler("/bootstrap/**").addResourceLocations("/WEB-INF/pages/bootstrap/");
-	        registry.addResourceHandler("/dist/**").addResourceLocations("/WEB-INF/pages/dist/");
-	        registry.addResourceHandler("/pages/**").addResourceLocations("/WEB-INF/pages/pages/");
-	        registry.addResourceHandler("/images/**").addResourceLocations("/WEB-INF/pages/pages/images/");
-	        registry.addResourceHandler("/pdf/**").addResourceLocations("/WEB-INF/pages/pages/pdf/");
-	        registry.addResourceHandler("/plugins/**").addResourceLocations("/WEB-INF/pages/plugins/");
+		 registry.addResourceHandler("/bootstrap/**").addResourceLocations("/WEB-INF/pages/bootstrap/");
+	     registry.addResourceHandler("/dist/**").addResourceLocations("/WEB-INF/pages/dist/");
+	     registry.addResourceHandler("/pages/**").addResourceLocations("/WEB-INF/pages/pages/");
+	     registry.addResourceHandler("/images/**").addResourceLocations("/WEB-INF/pages/pages/images/");
+	     registry.addResourceHandler("/pdf/**").addResourceLocations("/WEB-INF/pages/pages/pdf/");
+	     registry.addResourceHandler("/plugins/**").addResourceLocations("/WEB-INF/pages/plugins/");
 	 }
-	 
-	 
-	  // every midnight take emails from database
-	// for those having birthdate today
-	//@Scheduled(cron = "*/10 * * * * *")
-	//public void sendBirthdayWishes() {
-	//	System.out.println("db code");
-		// rows check if any row increased then take out
-		// that email id and send email
-		// users table uid uname passwd / birthdate//email
-		// 10 user
-		// 11 user
-		// welcome email
-	//	System.out.println("email  code");
-	//}
-
 }
