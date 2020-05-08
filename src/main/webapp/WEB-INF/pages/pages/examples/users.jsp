@@ -2,9 +2,8 @@
 <%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1" isELIgnored="false"%>
-
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-
+<%@ include file="prevent.jsp" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -88,7 +87,7 @@
 					<li class="header">MAIN NAVIGATION</li>
 					<li class="treeview"><a href="dashboard"> <i
 							class="fa fa-dashboard"></i> <span>Dashboard</span></a></li>
-					<li class="active"><a href="userlist"><i
+					<li class="active"><a href="userlist?page_id=1"><i
 							class="fa fa-user"></i> <span>Users</span></a></li>
 					<li><a href="operators"><i class="fa fa-retweet"></i> <span>Operators</span></a></li>
 					<li class="treeview"><a href="links"><i
@@ -141,7 +140,8 @@
 											<th>Course</th>
 											<th>Gender</th>
 											<th>State</th>
-											<th>Action</th>
+											<th>Edit</th>
+											<th>Delete</th>
 										</tr>
 
 										<c:forEach var="user" items="${userlist}">
@@ -155,44 +155,29 @@
 												<td><c:out value="${user.getCourses()}" /></td>
 												<td><c:out value="${user.getGender()}" /></td>
 												<td><c:out value="${user.getStatename()}" /></td>
-												<td><a
-													href="updateUser?iduser=<c:out value='${user.getIduser()}'/>&state=<c:out value='${user.getStatename()}'/>"><span
+												<td><a 	href="updateUser?iduser=<c:out value='${user.getIduser()}'/>&state=<c:out value='${user.getStatename()}'/>"><span
 														class="label label-danger" data-toggle="tooltip"
 														data-placement="top" title="Click to Update">update</span></a>
-													<a
-													href="deleteUser?iduser=<c:out value='${user.getIduser()}'  />"><span
+												</td>
+												<td>
+													<a href="deleteUser?iduser=<c:out value='${user.getIduser()}'  />"><span
 														class="label label-danger" data-toggle="tooltip"
 														data-placement="top" title="Click to Delete">Delete</span></a>
 												</td>
 											</tr>
 										</c:forEach>
 									</table>
-									<%-- <%--For displaying Previous link except for the 1st page --%>
-									<c:if test="${currentPage != 1}">
-										<td><a href="employee.do?page=${currentPage - 1}">Previous</a></td>
-									</c:if>
- --%>
-									<%--For displaying Page numbers. 
-    The when condition does not display a link for the current page--%>
-									<table border="1" cellpadding="5" cellspacing="5">
-										<tr>
-											<c:forEach begin="1" end="${noOfPages}" var="i">
-												<c:choose>
-													<c:when test="${currentPage eq i}">
-														<td>${i}</td>
-													</c:when>
-													<c:otherwise>
-														<td><a href="employee.do?page=${i}">${i}</a></td>
-													</c:otherwise>
-												</c:choose>
-											</c:forEach>
-										</tr>
-									</table>
 
-									<%--For displaying Next link --%>
-									<c:if test="${currentPage lt noOfPages}">
-										<td><a href="employee.do?page=${currentPage + 1}">Next</a></td>
-									</c:if>
+									<!-- Pagination links in spring mvc. -->
+									&nbsp;&nbsp;&nbsp;
+									<ul class="pagination pagination-sm">
+										<li class="page-item"><a class="page-link"
+											href="/userlist?page_id=1">1</a></li>
+										<li class="page-item"><a class="page-link"
+											href="/userlist?page_id=2">2</a></li>
+										<li class="page-item"><a class="page-link"
+											href="/userlist?page_id=3">3</a></li>
+									</ul>
 								</div>
 								<!-- /.box-body -->
 							</form>

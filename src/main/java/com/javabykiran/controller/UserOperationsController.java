@@ -27,12 +27,21 @@ public class UserOperationsController {
 	UserOperationsService uos;
 	
 	@RequestMapping(value = "/userlist" , method = RequestMethod.GET)
-	public ModelAndView UserlistController()
+	public ModelAndView UserlistController(@RequestParam("page_id") int page_id)
 	{
 		int loginid=uos.getLoginIDService();
 		System.out.println("I am in UserOperations COntroller userlist method..");
 		ModelAndView mv=new ModelAndView();
-		ArrayList<UserlistModel> userlist=uos.getUSerListService(loginid);
+		int total = 5;
+	    if(page_id == 1) 
+	    {
+	            // do nothing!
+	    }
+	    else 
+	    {            
+	            page_id= (page_id-1)*total+1;  
+	    }
+	    ArrayList<UserlistModel> userlist=uos.getUSerListService(loginid,page_id,total);
 		System.out.println("Userlist >> "+userlist);
 		mv.addObject("userlist", userlist);
 		mv.setViewName("users");
@@ -49,7 +58,7 @@ public class UserOperationsController {
 		boolean check=uos.getAddUserService(aum,sid);
 		if(check)
 		{
-			ArrayList<UserlistModel> userlist=uos.getUSerListService(loginid);
+			ArrayList<UserlistModel> userlist=uos.getUSerListService(loginid,1,5);
 			System.out.println("userlist >> "+userlist);
 			mv.addObject("success", "User added Successfully");
 			mv.addObject("userlist", userlist);
@@ -87,7 +96,7 @@ public class UserOperationsController {
 		boolean check=uos.getUpdateService(aum,sid);
 		if(check)
 		{
-			ArrayList<UserlistModel> userlist=uos.getUSerListService(loginid);
+			ArrayList<UserlistModel> userlist=uos.getUSerListService(loginid,1,5);
 			System.out.println("userlist >> "+userlist);
 			System.out.println("User Updated Successfully");
 			mv.addObject("success", "User Updated Successfully");
@@ -113,7 +122,7 @@ public class UserOperationsController {
 		check=uos.getdeleteUserService(iduser);
 		if(check)
 		{
-			ArrayList<UserlistModel> userlist=uos.getUSerListService(loginid);
+			ArrayList<UserlistModel> userlist=uos.getUSerListService(loginid,1,5);
 			System.out.println("userlist >> "+userlist);
 			System.out.println("User Deleted Successfully");
 			mv.addObject("success", "User Deleted Successfully");
@@ -148,12 +157,10 @@ public class UserOperationsController {
 			}
 		}
 		int loginid=uos.getLoginIDService();
-		ArrayList<UserlistModel> userlist=uos.getUSerListService(loginid);
+		ArrayList<UserlistModel> userlist=uos.getUSerListService(loginid,1,5);
 		System.out.println("userlist >> "+userlist);
 		mv.addObject("userlist", userlist);
 		mv.setViewName("users");
 		return mv;
 	}
-	
-	
 }

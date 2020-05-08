@@ -22,19 +22,19 @@ public class NavigationController
 	UserOperationsService uos;
 	
 	@RequestMapping(value = "/loginpage")
-	public String openLoginPage() {
+	public String openLoginPageController() {
 		System.out.println("openLoginPage..........");
 		return "login";
 	}
 	
 	@RequestMapping(value = "/register")
-	public String getRegisterPage()
+	public String getRegisterPageController()
 	{
 		return "register";
 	}
 
 	@RequestMapping(value="/deletemultiple", params = "adduserpage", method = RequestMethod.GET)
-	public ModelAndView getAddUserPage()
+	public ModelAndView getAddUserPageController()
 	{
 		System.out.println("I am in Add User Page");
 		ModelAndView mv=new ModelAndView();
@@ -46,14 +46,15 @@ public class NavigationController
 	}
 	
 	@RequestMapping(value = "/dashboard")
-	public String getDashboard()
+	public String getDashboardController()
 	{
 		return "dashboard";
 	}
 	
 	@RequestMapping(value = "/downloads")
-	public ModelAndView getDownloads()
+	public ModelAndView getDownloadsController()
 	{
+		System.out.println("I am Download Controller..");
 		ModelAndView mv=new ModelAndView();
 		ArrayList<DownloadsModel> downloadlist=uos.getDownloadService();
 		System.out.println("Download >> "+downloadlist);
@@ -63,7 +64,7 @@ public class NavigationController
 	}
 	
 	@RequestMapping(value = "/links")
-	public ModelAndView getLinks()
+	public ModelAndView getLinksController()
 	{
 		System.out.println("I am in Link Controller...");
 		ModelAndView mv=new ModelAndView();
@@ -75,13 +76,13 @@ public class NavigationController
 	}
 	
 	@RequestMapping(value = "/logout")
-	public String getLogout()
+	public String getLogoutController()
 	{
 		return "logout";
 	}
 	
 	@RequestMapping(value = "/operators")
-	public ModelAndView getOperators()
+	public ModelAndView getOperatorsController()
 	{
 		System.out.println("I am in Operator Controller...");
 		ModelAndView mv=new ModelAndView();
@@ -93,7 +94,7 @@ public class NavigationController
 	}
 	
 	@RequestMapping(value = "/profile")
-	public String getProfile()
+	public String getProfileController()
 	{
 		return "profile";
 	}

@@ -27,9 +27,9 @@ public class UserOperationsService {
 	@Autowired
 	UserOperationsDao uod;
 
-	public ArrayList<UserlistModel> getUSerListService(int loginid) {
+	public ArrayList<UserlistModel> getUSerListService(int loginid, int page_id, int total) {
 		System.out.println("I am in get Userlist Service..");
-		List<Users> registration=uod.getUserlistDao(loginid);
+		List<Users> registration=uod.getUserlistDao(loginid,page_id,total);
 		System.out.println(registration);
 		ArrayList<UserlistModel> rm = new ArrayList<>();
 		for(Users u:registration)
@@ -177,7 +177,7 @@ public class UserOperationsService {
 		{
 			dl.add(setDownloadData(dw));
 		}
-		return null;
+		return dl;
 	}
 	
 	private DownloadsModel setDownloadData(Downloads dw) 

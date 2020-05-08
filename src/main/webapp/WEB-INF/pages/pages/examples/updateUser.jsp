@@ -5,7 +5,7 @@
 	pageEncoding="ISO-8859-1"%>
 
 <%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
-
+<%@ include file="prevent.jsp" %>
 <!DOCTYPE html>
 <html>
   <head>
@@ -80,7 +80,7 @@
             <li class="header">MAIN NAVIGATION</li>
             <li class="treeview"><a href="dashboard">
             <i class="fa fa-dashboard"></i> <span>Dashboard</span></a></li>
-            <li class="active"><a href="userlist"><i class="fa fa-user"></i> <span>Users</span></a></li>
+            <li class="active"><a href="userlist?page_id=1"><i class="fa fa-user"></i> <span>Users</span></a></li>
             <li><a href="operators"><i class="fa fa-retweet"></i> <span>Operators</span></a></li>
             <li class="treeview"><a href="links"><i class="fa fa-external-link"></i> <span>     Useful Links</span></a></li>
             <li class="treeview"><a href="downloads">

@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1" isELIgnored="false"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-
+<%@ include file="prevent.jsp" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -79,7 +79,7 @@
 					<li class="header">MAIN NAVIGATION</li>
 					<li class="treeview"><a href="dashboard"> <i
 							class="fa fa-dashboard"></i> <span>Dashboard</span></a></li>
-					<li class="active"><a href="userlist"><i
+					<li class="active"><a href="userlist?page_id=1"><i
 							class="fa fa-user"></i> <span>Users</span></a></li>
 					<li><a href="operators"><i class="fa fa-retweet"></i> <span>Operators</span></a></li>
 					<li class="treeview"><a href="links"><i
@@ -130,35 +130,33 @@
 									<c:forEach var="download" items="${downloadlist}">
 										<tr>
 											<td><c:out value="${download.getIddownloads()}" /></td>
-											<td><img src="data:image/jpg;base64,${download.getBase64Image}" alt="JBK Download"
+											<td><img src="data:image/jpg;base64,${download.getBase64Image()}" alt="JBK Download"
 												style="height: 40px; padding-left: 7px;"></td>
 											<td><c:out value="${download.getVender()}" /></td>
 											<td><span class="label label-info"><c:out
 														value="${download.getVersion()}" /></span></td>
 											<c:choose>
-												<c:when test="${download.getBit32 ne null }">
+												<c:when test="${download.getBit32() ne null }">
 													<td><a href="<c:out value="${download.getBit32()}"/>"
 														download> <span class="label label-success">32bit</span>
 													</a></td>
 												</c:when>
 											</c:choose>
 											<c:choose>
-												<c:when test="${download.getBit64 ne null }">
+												<c:when test="${download.getBit64() ne null }">
 													<td><a href="<c:out value="${download.getBit64()}"/>"
 														download> <span class="label label-success">64bit</span>
 													</a></td>
 												</c:when>
 											</c:choose>
 											<c:choose>
-												<c:when test="${download.getCommon ne null }">
+												<c:when test="${download.getCommon() ne null }">
 													<td><a href="<c:out value="${download.getCommon()}"/>"
 														download> <span class="label label-success">Common</span>
 													</a></td>
 												</c:when>
 											</c:choose>
-											<td></td>
-											<td><a
-												href="<c:out value="${download.getOfficialSource()}"/>"
+											<td><a href="<c:out value="${download.getOfficialSource()}"/>"
 												target="_blank"> <span class="label label-warning">Official
 														Website</span>
 											</a></td>

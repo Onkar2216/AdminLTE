@@ -5,6 +5,7 @@ import java.util.Arrays;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
@@ -15,9 +16,6 @@ import javax.persistence.Table;
 @Table(name = "downloads", catalog = "loginspringmvcjbk")
 public class Downloads implements java.io.Serializable {
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 	private int iddownloads;
 	private byte[] name;
@@ -44,7 +42,7 @@ public class Downloads implements java.io.Serializable {
 	}
 
 	@Id
-
+	@GeneratedValue
 	@Column(name = "iddownloads", unique = true, nullable = false)
 	public int getIddownloads() {
 		return this.iddownloads;
@@ -108,7 +106,7 @@ public class Downloads implements java.io.Serializable {
 		this.common = common;
 	}
 
-	@Column(name = "Official Source", nullable = false, length = 100)
+	@Column(name = "Official_Source", nullable = false, length = 100)
 	public String getOfficialSource() {
 		return this.officialSource;
 	}
